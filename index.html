@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>下拉菜单列表</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="reset.css" rel="stylesheet">
+<link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <ol class="list">
+            
+        </ol>
+    </div>
+    <script>
+    var str = "";
+    var data = [
+        [
+            {title: "第一课"},
+            {url: "#",title: "lesson1"},
+            {url: "#",title: "lesson2"},
+            {url: "#",title: "lesson3"},
+            {url: "#",title: "lesson4"},
+            {url: "#",title: "lesson5"},
+            {url: "#",title: "lesson6"}
+        ],
+        [
+            {title: "第二课"},
+            {url: "#",title: "lesson1"},
+            {url: "#",title: "lesson2"},
+            {url: "#",title: "lesson3"},
+            {url: "#",title: "lesson4"},
+            {url: "#",title: "lesson5"},
+            {url: "#",title: "lesson6"}
+        ],
+        [
+            {title: "第三课"},
+            {url: "#",title: "lesson1"},
+            {url: "#",title: "lesson2"},
+            {url: "#",title: "lesson3"},
+            {url: "#",title: "lesson4"},
+            {url: "#",title: "lesson5"},
+            {url: "#",title: "lesson6"}
+        ],
+        [
+            {title: "第四课"},
+            {url: "#",title: "lesson1"},
+            {url: "#",title: "lesson2"},
+            {url: "#",title: "lesson3"},
+            {url: "#",title: "lesson4"},
+            {url: "#",title: "lesson5"},
+            {url: "#",title: "lesson6"}
+        ],
+        [
+            {title: "第五课"},
+            {url: "#",title: "lesson1"},
+            {url: "#",title: "lesson2"},
+            {url: "#",title: "lesson3"},
+            {url: "#",title: "lesson4"},
+            {url: "#",title: "lesson5"},
+            {url: "#",title: "lesson6"}
+        ],
+        [
+            {title: "第六课"},
+            {url: "#",title: "lesson1"},
+            {url: "#",title: "lesson2"},
+            {url: "#",title: "lesson3"},
+            {url: "#",title: "lesson4"},
+            {url: "#",title: "lesson5"},
+            {url: "#",title: "lesson6"}
+        ]
+    ];
+
+    for (var i = 0; i < data.length; i++) {
+        var ele = data[i];
+        var sub = "";
+        for (var j = 0; j < ele.length; j++) {
+            var son = ele[j];
+            if (j == 0) {
+                sub += '<li><h1><a href="#" title="'+son.title+'">'+son.title+'</a></h1><dl class="sub-dl">';
+            } else {
+                sub += '<dd><a href="'+son.url+'" title="'+son.title+'">'+son.title+'</a></dd>';
+            }
+            if (j == ele.length - 1) {
+                sub += '</dl></li>';
+            }
+        }
+        str += sub;
+    }
+
+    var ol = document.querySelector('ol');
+    ol.innerHTML = str;
+    var h1 = document.querySelectorAll('h1');
+    var dl = document.querySelectorAll('dl');
+    var tmp = -1;
+    var open = false;
+
+    for (var i = 0; i < h1.length; i++) {
+        h1[i].index = i;
+        h1[i].onclick = function() {
+            for (var i = 0; i < h1.length; i++) {
+                dl[i].style.display = "none";
+            }
+            if (tmp == this.index && open) {
+                dl[this.index].style.display = "none";
+                open = false;
+            } else {
+                dl[this.index].style.display = "block";
+                open = true;
+            }
+            tmp = this.index;
+        }
+    }
+    </script>
+</body>
+</html>
