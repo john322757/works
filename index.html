@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>下拉菜单列表</title>
+<title>前端作品集</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="reset.css" rel="stylesheet">
@@ -108,9 +108,12 @@
             if (tmp == this.index && open) {
                 dl[this.index].style.display = "none";
                 open = false;
+                h1[this.index].style.background = "#9c0";
             } else {
                 dl[this.index].style.display = "block";
                 open = true;
+                h1[this.index].style.background = "#0af";
+                dl[this.index].style.background = "#7df";
             }
             tmp = this.index;
         }
